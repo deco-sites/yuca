@@ -1,5 +1,3 @@
-import { context } from "$live/live.ts";
-
 export interface Props {
   enableInspectVSCode?: boolean;
 }
@@ -23,20 +21,8 @@ export default function GetStarted({ enableInspectVSCode }: Props) {
               <h2 class="mb-3 font-bold text-primary-dark text-4xl">
                 Welcome to Live!
               </h2>
-              <p class="text-lg">
-                You can create a new page by visiting it.
-              </p>
-              <p class="mb-4 text-lg">
-                Try any URL in the address bar 👆
-              </p>
-              {enableInspectVSCode && !context.deploymentId && (
-                <p class="mb-8 text-lg border border-dashed border-primary-dark p-4">
-                  <span class="italic">PROTIP:</span>{" "}
-                  Hit backtick (`) and click on any part of this page to
-                  navigate to the code in VSCode automatically. Hit ESC to exit
-                  inspect mode.
-                </p>
-              )}
+              <p class="text-lg">You can create a new page by visiting it.</p>
+              <p class="mb-4 text-lg">Try any URL in the address bar 👆</p>
             </div>
           </div>
         </div>
