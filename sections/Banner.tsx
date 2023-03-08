@@ -14,11 +14,11 @@ export default function Banner({ imgSrc, alt, title, subtitle }: Props) {
     <div className="text-[#1F4E4D]">
       <div className="w-full bg-text-dark pt-[85px]">
         <div className="mx-auto max-w-7xl h-full flex justify-between items-center">
-          <div className="w-full sm:w-1/2 flex flex-col py-8 px-6 mt-[40px]">
-            <h1 className="max-w-[500px] font-serif font-black text-5xl mb-5 leading-[60px] text-[#F9E8C8]">
+          <div className="w-full sm:w-1/2 flex flex-col py-8 px-6 sm:mt-[40px]">
+            <h1 className="max-w-[500px] font-serif font-black text-4xl sm:text-5xl mb-5 leading-[48px] sm:leading-[60px] text-[#F9E8C8]">
               {title}
             </h1>
-            <p className="max-w-[500px] text-xl font-sans font-bold leading-8 mb-5 text-[#FDFAF7]">
+            <p className="max-w-[500px] text-base sm:text-xl font-sans font-bold leading-6 sm:leading-8 mb-5 text-[#FDFAF7]">
               {subtitle}
             </p>
             <FormFilters />
