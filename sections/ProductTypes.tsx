@@ -1,6 +1,20 @@
 import Image from "$live/std/ui/components/Image.tsx";
+import type { Image as LiveImage } from "$live/std/ui/types/Image.ts";
 
-export default function ProductTypes() {
+export interface Props {
+  title?: string;
+  subtitle: string;
+  products: ProductType[];
+}
+
+export interface ProductType {
+  imgSrc: LiveImage;
+  alt?: string;
+  title: string;
+  description: string;
+}
+
+export default function ProductTypes({ title, subtitle, products }: Props) {
   return (
     <div className="mx-auto max-w-7xl my-24 px-6">
       <div className="flex gap-8 flex-col sm:flex-row">
@@ -18,50 +32,32 @@ export default function ProductTypes() {
               </svg>
             </div>
             <h2 className="w-full font-serif font-black text-4xl mb-5">
-              Sua casa pronta para te receber{" "}
+              {title}
             </h2>
-            <p className="text-base font-sans">
-              Apartamentos mobiliados e contratos flexíveis, para atender ao seu
-              estilo de vida.
-            </p>
+            <p className="text-base font-sans">{subtitle}</p>
           </div>
         </div>
-        <div className="w-full sm:w-1/3 flex flex-col relative">
-          <Image
-            class="object-contain w-auto rounded-lg"
-            sizes="(max-width: 640px) 75vw, 50vw"
-            src="https://www.yuca.live/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fstandard_product_type.81935f41.png&w=992&q=75"
-            alt="banner"
-            width={300}
-            height={300}
-          />
-          <div className="absolute left-7 bottom-7 right-7">
-            <h3 className="text-white text-2xl leading-8 mb-2.5 font-serif">
-              Apartamentos inteiros
-            </h3>
-            <p className="text-base leading-6 text-white font-semibold">
-              Studios e apartamentos para morar sozinho ou em família
-            </p>
+        {products?.map((prod) => (
+          <div className="w-full sm:w-1/3 flex flex-col relative">
+            <div className="absolute w-full h-full bg-[#00000040] rounded-lg"></div>
+            <Image
+              class="object-contain w-auto rounded-lg"
+              sizes="(max-width: 640px) 75vw, 50vw"
+              src={prod.imgSrc}
+              alt={prod.alt}
+              width={300}
+              height={300}
+            />
+            <div className="absolute left-7 bottom-7 right-7">
+              <h3 className="text-white text-2xl leading-8 mb-2.5 font-serif">
+                {prod.title}
+              </h3>
+              <p className="text-base leading-6 text-white font-semibold">
+                {prod.description}
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="w-full sm:w-1/3 flex flex-col relative">
-          <Image
-            class="object-contain w-auto rounded-lg"
-            sizes="(max-width: 640px) 75vw, 50vw"
-            src="https://www.yuca.live/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fstandard_product_type.81935f41.png&w=992&q=75"
-            alt="banner"
-            width={300}
-            height={300}
-          />
-          <div className="absolute left-7 bottom-7 right-7">
-            <h3 className="text-white text-2xl leading-8 mb-2.5 font-serif">
-              Apartamentos inteiros
-            </h3>
-            <p className="text-base leading-6 text-white font-semibold">
-              Studios e apartamentos para morar sozinho ou em família
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

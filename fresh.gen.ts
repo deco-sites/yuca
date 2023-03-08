@@ -10,6 +10,7 @@ import * as $2 from "./routes/_middleware.ts";
 import * as $3 from "./routes/index.tsx";
 import * as $$0 from "./islands/FormFilters.tsx";
 import * as $$1 from "./islands/LiveControls.tsx";
+import * as $$2 from "./islands/Menu.tsx";
 import * as $$$0 from "./sections/Banner.tsx";
 import * as $$$1 from "./sections/Experience.tsx";
 import * as $$$2 from "./sections/Features.tsx";
@@ -34,6 +35,7 @@ const manifest: DecoManifest = {
   islands: {
     "./islands/FormFilters.tsx": $$0,
     "./islands/LiveControls.tsx": $$1,
+    "./islands/Menu.tsx": $$2,
   },
   sections: {
     "./sections/Banner.tsx": $$$0,
@@ -52,15 +54,142 @@ const manifest: DecoManifest = {
   functions: { "./functions/LoadGitHubRaw.ts": $$$$0 },
   schemas: {
     "./sections/Banner.tsx": {
-      "inputSchema": null,
+      "inputSchema": {
+        "title": " Banner",
+        "type": "object",
+        "properties": {
+          "imgSrc": {
+            "format": "image-uri",
+            "type": "string",
+            "title": "Img Src",
+          },
+          "alt": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Alt",
+          },
+          "title": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Title",
+          },
+          "subtitle": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Subtitle",
+          },
+        },
+        "required": [
+          "imgSrc",
+        ],
+      },
       "outputSchema": null,
     },
     "./sections/Experience.tsx": {
-      "inputSchema": null,
+      "inputSchema": {
+        "title": " Experience",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title",
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "title": "Img",
+              "type": "object",
+              "properties": {
+                "imgSrc": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Img Src",
+                },
+                "alt": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                  "title": "Alt",
+                },
+              },
+              "required": [
+                "imgSrc",
+              ],
+            },
+            "title": "Images",
+          },
+        },
+        "required": [
+          "title",
+          "description",
+          "images",
+        ],
+      },
       "outputSchema": null,
     },
     "./sections/Features.tsx": {
-      "inputSchema": null,
+      "inputSchema": {
+        "title": " Features",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Title",
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "title": "Feature",
+              "type": "object",
+              "properties": {
+                "imgSrc": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Img Src",
+                },
+                "alt": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                  "title": "Alt",
+                },
+                "title": {
+                  "type": "string",
+                  "title": "Title",
+                },
+                "description": {
+                  "type": "string",
+                  "title": "Description",
+                },
+              },
+              "required": [
+                "imgSrc",
+                "title",
+                "description",
+              ],
+            },
+            "title": "Features",
+          },
+        },
+        "required": [
+          "features",
+        ],
+      },
       "outputSchema": null,
     },
     "./sections/Footer.tsx": {
@@ -158,7 +287,62 @@ const manifest: DecoManifest = {
       "outputSchema": null,
     },
     "./sections/ProductTypes.tsx": {
-      "inputSchema": null,
+      "inputSchema": {
+        "title": " Product Types",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Title",
+          },
+          "subtitle": {
+            "type": "string",
+            "title": "Subtitle",
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "title": "ProductType",
+              "type": "object",
+              "properties": {
+                "imgSrc": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Img Src",
+                },
+                "alt": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                  "title": "Alt",
+                },
+                "title": {
+                  "type": "string",
+                  "title": "Title",
+                },
+                "description": {
+                  "type": "string",
+                  "title": "Description",
+                },
+              },
+              "required": [
+                "imgSrc",
+                "title",
+                "description",
+              ],
+            },
+            "title": "Products",
+          },
+        },
+        "required": [
+          "subtitle",
+          "products",
+        ],
+      },
       "outputSchema": null,
     },
     "./sections/QuillText.tsx": {
@@ -179,7 +363,69 @@ const manifest: DecoManifest = {
       "outputSchema": null,
     },
     "./sections/Shelf.tsx": {
-      "inputSchema": null,
+      "inputSchema": {
+        "title": " Shelf",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Title",
+          },
+          "subtitle": {
+            "type": [
+              "string",
+              "null",
+            ],
+            "title": "Subtitle",
+          },
+          "apartaments": {
+            "type": "array",
+            "items": {
+              "title": "Apartament",
+              "type": "object",
+              "properties": {
+                "imgSrc": {
+                  "format": "image-uri",
+                  "type": "string",
+                  "title": "Img Src",
+                },
+                "alt": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                  "title": "Alt",
+                },
+                "title": {
+                  "type": "string",
+                  "title": "Title",
+                },
+                "price": {
+                  "type": "string",
+                  "title": "Price",
+                },
+                "totalPrice": {
+                  "type": "string",
+                  "title": "Total Price",
+                },
+              },
+              "required": [
+                "imgSrc",
+                "title",
+                "price",
+                "totalPrice",
+              ],
+            },
+            "title": "Apartaments",
+          },
+        },
+        "required": [
+          "apartaments",
+        ],
+      },
       "outputSchema": null,
     },
     "./functions/LoadGitHubRaw.ts": {

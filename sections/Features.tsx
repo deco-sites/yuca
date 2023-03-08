@@ -1,6 +1,19 @@
 import Image from "$live/std/ui/components/Image.tsx";
+import type { Image as LiveImage } from "$live/std/ui/types/Image.ts";
 
-export default function Features() {
+export interface Props {
+  title?: string;
+  features: Feature[];
+}
+
+export interface Feature {
+  imgSrc: LiveImage;
+  alt?: string;
+  title: string;
+  description: string;
+}
+
+export default function Features({ title, features }: Props) {
   return (
     <div className="text-white">
       <svg
@@ -17,82 +30,29 @@ export default function Features() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="flex flex-col py-8 mt-[40px]">
             <h2 className="w-full font-serif font-black text-4xl mb-5 text-center text-[#102436]">
-              O novo conceito de morar bem.
+              {title}
             </h2>
           </div>
           <div className="flex gap-[30px] flex-col sm:flex-row">
-            <div className="w-full sm:w-1/4 flex flex-col p-8 bg-white rounded-lg">
-              <picture className="w-[72px] h-[72px] mb-5">
-                <Image
-                  class="object-contain w-auto rounded"
-                  src="https://img.imageboss.me/production-yuca-real-estate-assets/width/1350/compression:false/cb25c3ee-5870-4e3a-9785-ed4997d5a61d/6d624e4b-f263-4def-941e-229596d2aab6/75cebe68-bb7d-4832-bd0a-734671b742bb.jpg"
-                  alt="banner"
-                  width={72}
-                  height={72}
-                />
-              </picture>
-              <p className="text-sm font-bold text-[#102436] text-base mb-2.5 leading-6">
-                Localização privilegiada
-              </p>
-              <p className="text-sm mb-1 text-[#425158] text-base leading-6">
-                Apartamentos nos melhores bairros de São Paulo para alugar a
-                partir de 3 meses, já com mobília ou semi mobiliados.
-              </p>
-            </div>
-            <div className="w-full sm:w-1/4 flex flex-col p-8 bg-white rounded-lg">
-              <picture className="w-[72px] h-[72px] mb-5">
-                <Image
-                  class="object-contain w-auto rounded"
-                  src="https://img.imageboss.me/production-yuca-real-estate-assets/width/1350/compression:false/cb25c3ee-5870-4e3a-9785-ed4997d5a61d/6d624e4b-f263-4def-941e-229596d2aab6/75cebe68-bb7d-4832-bd0a-734671b742bb.jpg"
-                  alt="banner"
-                  width={72}
-                  height={72}
-                />
-              </picture>
-              <p className="text-sm font-bold text-[#102436] text-base mb-2.5 leading-6">
-                Localização privilegiada
-              </p>
-              <p className="text-sm mb-1 text-[#425158] text-base leading-6">
-                Apartamentos nos melhores bairros de São Paulo para alugar a
-                partir de 3 meses, já com mobília ou semi mobiliados.
-              </p>
-            </div>
-            <div className="w-full sm:w-1/4 flex flex-col p-8 bg-white rounded-lg">
-              <picture className="w-[72px] h-[72px] mb-5">
-                <Image
-                  class="object-contain w-auto rounded"
-                  src="https://img.imageboss.me/production-yuca-real-estate-assets/width/1350/compression:false/cb25c3ee-5870-4e3a-9785-ed4997d5a61d/6d624e4b-f263-4def-941e-229596d2aab6/75cebe68-bb7d-4832-bd0a-734671b742bb.jpg"
-                  alt="banner"
-                  width={72}
-                  height={72}
-                />
-              </picture>
-              <p className="text-sm font-bold text-[#102436] text-base mb-2.5 leading-6">
-                Localização privilegiada
-              </p>
-              <p className="text-sm mb-1 text-[#425158] text-base leading-6">
-                Apartamentos nos melhores bairros de São Paulo para alugar a
-                partir de 3 meses, já com mobília ou semi mobiliados.
-              </p>
-            </div>
-            <div className="w-full sm:w-1/4 flex flex-col p-8 bg-white rounded-lg">
-              <picture className="w-[72px] h-[72px] mb-5">
-                <Image
-                  class="object-contain w-auto rounded"
-                  src="https://img.imageboss.me/production-yuca-real-estate-assets/width/1350/compression:false/cb25c3ee-5870-4e3a-9785-ed4997d5a61d/6d624e4b-f263-4def-941e-229596d2aab6/75cebe68-bb7d-4832-bd0a-734671b742bb.jpg"
-                  alt="banner"
-                  width={72}
-                  height={72}
-                />
-              </picture>
-              <p className="text-sm font-bold text-[#102436] text-base mb-2.5 leading-6">
-                Localização privilegiada
-              </p>
-              <p className="text-sm mb-1 text-[#425158] text-base leading-6">
-                Apartamentos nos melhores bairros de São Paulo para alugar a
-                partir de 3 meses, já com mobília ou semi mobiliados.
-              </p>
-            </div>
+            {features.map((feat) => (
+              <div className="w-full sm:w-1/4 flex flex-col p-8 bg-white rounded-lg">
+                <picture className="w-[72px] h-[72px] mb-5">
+                  <Image
+                    class="object-contain w-auto rounded"
+                    src={feat.imgSrc}
+                    alt={feat.alt}
+                    width={72}
+                    height={72}
+                  />
+                </picture>
+                <p className="text-sm font-bold text-[#102436] text-base mb-2.5 leading-6">
+                  {feat.title}
+                </p>
+                <p className="text-sm mb-1 text-[#425158] text-base leading-6">
+                  {feat.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -1,6 +1,18 @@
 import Image from "$live/std/ui/components/Image.tsx";
+import type { Image as LiveImage } from "$live/std/ui/types/Image.ts";
 
-export default function Experience() {
+export interface Props {
+  title: string;
+  description: string;
+  images: Img[];
+}
+
+export interface Img {
+  imgSrc: LiveImage;
+  alt?: string;
+}
+
+export default function Experience({ title, description, images }: Props) {
   return (
     <section className="text-[#fff]">
       <svg
@@ -32,23 +44,20 @@ export default function Experience() {
                   </svg>
                 </div>
                 <h2 className="w-full font-serif font-black text-4xl mb-5 text-[#102436]">
-                  A Yuca facilita toda a experiência de locação.
+                  {title}
                 </h2>
                 <p className="text-base font-sans text-[#102436]">
-                  Pré-selecionamos as melhores oportunidades para você ter
-                  apenas boas opções. A contratação é 100% online e os
-                  apartamentos já estão prontos para te receber, com tudo
-                  funcionando.
+                  {description}
                 </p>
               </div>
             </div>
             <div className="w-full sm:w-4/6 flex flex-col relative gap-8 md:order-1">
-              <div className="flex gap-8 items-start">
+              <div className="flex gap-2 sm:gap-8 items-start">
                 <div className="w-6/12">
                   <Image
                     class="w-full rounded-lg max-h-72"
                     sizes="(max-width: 640px) 75vw, 50vw"
-                    src="https://www.yuca.live/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmosaic_01.3461545f.png&w=992&q=75"
+                    src={images[0].imgSrc}
                     alt="banner"
                     width={300}
                     height={300}
@@ -58,7 +67,7 @@ export default function Experience() {
                   <Image
                     class="w-full rounded-lg max-h-72"
                     sizes="(max-width: 640px) 75vw, 50vw"
-                    src="https://www.yuca.live/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmosaic_01.3461545f.png&w=992&q=75"
+                    src={images[1].imgSrc}
                     alt="banner"
                     width={300}
                     height={300}
@@ -68,19 +77,19 @@ export default function Experience() {
                   <Image
                     class="w-full rounded-lg max-h-72"
                     sizes="(max-width: 640px) 75vw, 50vw"
-                    src="https://www.yuca.live/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmosaic_01.3461545f.png&w=992&q=75"
+                    src={images[2].imgSrc}
                     alt="banner"
                     width={300}
                     height={300}
                   />
                 </div>
               </div>
-              <div className="flex gap-8 px-6">
+              <div className="flex gap-2 sm:gap-8 sm:px-6">
                 <div className="w-4/12">
                   <Image
                     class="w-full rounded-lg max-h-72"
                     sizes="(max-width: 640px) 75vw, 50vw"
-                    src="https://www.yuca.live/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmosaic_01.3461545f.png&w=992&q=75"
+                    src={images[3].imgSrc}
                     alt="banner"
                     width={300}
                     height={300}
@@ -90,7 +99,7 @@ export default function Experience() {
                   <Image
                     class="w-full rounded-lg max-h-72"
                     sizes="(max-width: 640px) 75vw, 50vw"
-                    src="https://www.yuca.live/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmosaic_01.3461545f.png&w=992&q=75"
+                    src={images[4].imgSrc}
                     alt="banner"
                     width={300}
                     height={300}
@@ -100,7 +109,7 @@ export default function Experience() {
                   <Image
                     class="w-full rounded-lg max-h-72"
                     sizes="(max-width: 640px) 75vw, 50vw"
-                    src="https://www.yuca.live/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmosaic_01.3461545f.png&w=992&q=75"
+                    src={images[5].imgSrc}
                     alt="banner"
                     width={300}
                     height={300}

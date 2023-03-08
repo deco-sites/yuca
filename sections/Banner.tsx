@@ -1,18 +1,25 @@
 import Image from "$live/std/ui/components/Image.tsx";
+import type { Image as LiveImage } from "$live/std/ui/types/Image.ts";
 import FormFilters from "../islands/FormFilters.tsx";
 
-export default function Banner() {
+export interface Props {
+  imgSrc: LiveImage;
+  alt?: string;
+  title?: string;
+  subtitle?: string;
+}
+
+export default function Banner({ imgSrc, alt, title, subtitle }: Props) {
   return (
     <div className="text-[#1F4E4D]">
       <div className="w-full bg-text-dark pt-[85px]">
         <div className="mx-auto max-w-7xl h-full flex justify-between items-center">
           <div className="w-full sm:w-1/2 flex flex-col py-8 px-6 mt-[40px]">
             <h1 className="max-w-[500px] font-serif font-black text-5xl mb-5 leading-[60px] text-[#F9E8C8]">
-              Encontre a moradia perfeita para você.
+              {title}
             </h1>
             <p className="max-w-[500px] text-xl font-sans font-bold leading-8 mb-5 text-[#FDFAF7]">
-              Apartamentos nos melhores bairros de São Paulo com design
-              exclusivo e serviços integrados.
+              {subtitle}
             </p>
             <FormFilters />
           </div>
@@ -20,8 +27,8 @@ export default function Banner() {
             <Image
               class="object-contain pb-5 w-auto min-w-[430px] z-10"
               sizes="(max-width: 640px) 75vw, 50vw"
-              src="https://www.yuca.live/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhome-main.aa2512ff.png&w=768&q=75"
-              alt="banner"
+              src={imgSrc}
+              alt={alt}
               width={300}
               height={300}
             />
