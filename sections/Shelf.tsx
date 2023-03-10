@@ -26,7 +26,10 @@ export default function Shelf({ title, subtitle, apartaments }: Props) {
       </div>
       <div className="flex gap-5 sm:flex-row flex-col">
         {apartaments.map((apart) => (
-          <div className="w-full sm:w-1/3 flex flex-col relative">
+          <a
+            className="w-full sm:w-1/3 flex flex-col relative"
+            href="https://www.yuca.live/apartamentos/estacao-vila-tolstoi-sp-vila-tolstoi-rua-correia-da-camara-vila-tolstoi/pop-sp-2011?origin=home-default"
+            target="_blank">
             <i
               data-test-id="favButton"
               class="text-white absolute bg-[#0000001a] p-1 right-2.5 top-2.5 cursor-pointer rounded"
@@ -51,11 +54,14 @@ export default function Shelf({ title, subtitle, apartaments }: Props) {
             <p className="text-sm pt-2.5">{apart.title}</p>
             <p className="text-sm font-bold mt-2 mb-1">{apart.price}</p>
             <p className="text-sm">{apart.totalPrice}</p>
-          </div>
+          </a>
         ))}
       </div>
       <div className="flex w-full my-10 justify-center">
-        <button className="p-5 text-sm font-bold rounded-lg bg-primary text-white flex">
+        <a
+          className="p-5 text-sm font-bold rounded-lg bg-primary text-white flex"
+          href="https://www.yuca.live/apartamentos"
+          target="_blank">
           Ver mais apartamentos{" "}
           <svg
             className="fill-current w-[24px] h-[24px] ml-4"
@@ -64,7 +70,7 @@ export default function Shelf({ title, subtitle, apartaments }: Props) {
             role="img">
             <path d="M5 14.625h16.733l-7.685-7.687L16 5l11 11-11 11-1.938-1.938 7.671-7.687H5v-2.75Z"></path>
           </svg>
-        </button>
+        </a>
       </div>
     </div>
   );

@@ -38,7 +38,10 @@ export default function ProductTypes({ title, subtitle, products }: Props) {
           </div>
         </div>
         {products?.map((prod) => (
-          <div className="w-full sm:w-1/3 flex flex-col relative">
+          <a
+            className="w-full sm:w-1/3 flex flex-col relative"
+            href="https://www.yuca.live/apartamentos?shared=no"
+            target="_blank">
             <div className="absolute w-full h-full bg-[#00000040] rounded-lg"></div>
             <Image
               class="object-contain w-auto rounded-lg"
@@ -56,7 +59,7 @@ export default function ProductTypes({ title, subtitle, products }: Props) {
                 {prod.description}
               </p>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>

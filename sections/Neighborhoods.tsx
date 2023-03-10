@@ -43,7 +43,7 @@ export default function Neighborhoods() {
       <div className="flex flex-wrap">
         {data.map((neighborhood) => (
           <a
-            href="/"
+            href={`https://www.yuca.live/apartamentos/p/sao-paulo/consolacao-sp`}
             className="text-sm hover:text-red-500 text-[#102436] leading-5 mb-2.5">
             {neighborhood}
             <span className="mx-2.5">•</span>
